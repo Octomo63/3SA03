@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './App.css';
 import CharacterCard from './CharacterCard';
 
 import _ from 'lodash';
-import { useState,useEffect} from '../node_modules/fast-glob/out/managers/options';
+//import {useEffect,useState} from '../node_modules/fast-glob/out/managers/options';
 const prepareStateFromWord = (given_word) => {
     let word = given_word.toUpperCase()
     let chars = _.shuffle(Array.from(word))
@@ -16,13 +16,13 @@ const prepareStateFromWord = (given_word) => {
     }
 }
 export default function WordCard(props){
-    const[state, state] = useState({
-        word,
-        chars,
+const[state,setState] = useState({
+        word: '',
+        chars: '',
         attempt: 1,
         guess: '',
         completed: false
-    })
+        })
     useEffect(() =>{
         let data = prepareStateFromWord(props.value)
         setState({
@@ -51,9 +51,9 @@ export default function WordCard(props){
     }
  return (
  <div>
-    { Array.from(props.chars).map((c, i) => <CharacterCard value={c} key={i}/>)
+    { Array.from(state.chars).map((c, i) => <CharacterCard value={c} key={i}
     activationHandler = {activationHandler}
-    attempt = {state.attempt}/> }
+    attempt = {state.attempt}/> )}
  </div>
  );
 }

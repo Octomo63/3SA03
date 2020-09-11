@@ -9,14 +9,15 @@
 
 //check3
 import './App.css';
-import React, { useState,useRef } from 'react';
+import React, { useState,useEffect,useRef } from 'react';
 export default function CharacterCard(props) {
-const [active, setActive] = useRef(props.attemp);
+const [active, setActive] = useState(false);
+const attemptRef = useRef(props.attempt);
 const activate = () => {
-        if(!active){
-        setActive(true)
-        props.activationHandler(props.value)
-        }
+    if(!active){
+    setActive(true)
+    props.activationHandler(props.value)
+    }
 }
 useEffect(() => {
     if(attemptRef.current != props.attempt){
@@ -25,9 +26,8 @@ useEffect(() => {
     }
     })
     
- const className = `card ${active ? 'activeCard': ''}`
- return (
+const className = `card ${active ? 'activeCard': ''}`
+return (
  <div className={className} onClick={activate}>{props.value}</div>
  )
-
 }
