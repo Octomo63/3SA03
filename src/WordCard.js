@@ -42,6 +42,7 @@ const[state,setState] = useState({
         if(guess.length == state.word.length){
         if(guess == state.word){
         console.log('yeah!')
+        window.alert("You Are Winner") //Show alert box
         setState({...state, guess: '', completed: true})
         }else{
         console.log('reset')
