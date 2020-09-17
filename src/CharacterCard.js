@@ -1,13 +1,3 @@
-// //Check2
-// import React from 'react';
-// import './App.css';
-// export default function CharacterCard(props) {
-//  return (
-//  <div className = "card" >{props.value}</div>
-//  )
-// }
-
-//check3
 import './App.css';
 import React, { useState,useEffect,useRef } from 'react';
 export default function CharacterCard(props) {
